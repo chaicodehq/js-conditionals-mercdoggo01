@@ -26,4 +26,57 @@
  */
 export function calculateGrade(score, hasExtraCredit) {
   // Your code here
+  
+
+  if(!isNaN(score) && (score>=0 & score<=100))
+  {
+      if(score>=90 && score<=100)
+      {
+        return 'A';
+      }
+      else if (score>=80 && score<=89){
+          let passer_B = score+5;
+          if(hasExtraCredit===true)
+          {
+            return (passer_B>=90 ? "A" : "B")
+          }
+          else{
+            return "B"
+          }
+      }
+      else if (score>=70 && score<=79){
+          let passer_C = score+5;
+          if(hasExtraCredit===true)
+          {
+            return (passer_C>=80 ? "B" : "C")
+          }
+          else{
+            return "C"
+          }
+      }
+      else if (score>=60 && score<=69){
+          let passer_D = score+5;
+          if(hasExtraCredit===true)
+          {
+            return (passer_D>=80 ? "C" : "D");
+          }
+          else{
+            return "D"
+          }
+      }
+      else{
+        let passer_F = score+5;
+          if(hasExtraCredit===true)
+          {
+            return (passer_F>=60 ? "D" : "F");
+          }
+          else{
+            return "F"
+          }
+      }
+      
+  }
+  else{
+    return "INVALID";
+  }
 }

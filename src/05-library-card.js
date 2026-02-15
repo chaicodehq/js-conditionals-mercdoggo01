@@ -34,4 +34,33 @@
  */
 export function canBorrowBook(memberAge, hasValidCard, overdueBooks) {
   // Your code here
+  let acceptance = {
+    "allowed": true,
+    "message": "You may borrow up to 3 books"
+  };
+  if ((isNaN(memberAge) || memberAge < 6) || (hasValidCard === false) || (overdueBooks !== 0)) {
+    if ((isNaN(memberAge) || memberAge < 6)) {
+      let failure = {
+        "allowed": false, "message": "Too young - must be at least 6 years old"
+      };
+      return failure;
+    }
+    else if((hasValidCard === false)){
+      let failure = {
+        "allowed": false, "message": "Invalid library card - please renew at the front desk"
+      };
+      return failure;
+    }
+    else{
+      let failure = {
+        "allowed": false, "message": `Please return your ${overdueBooks} overdue book(s) first`
+      };
+      return failure;
+    }
+  }
+  else{
+    return acceptance;
+  }
+
 }
+

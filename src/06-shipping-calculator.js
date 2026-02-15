@@ -30,4 +30,25 @@
  */
 export function calculateShipping(weight, country, orderTotal) {
   // Your code here
+  if(isNaN(orderTotal) ||  orderTotal<=0){
+    return -1;
+  }
+  else{
+    if(country==="US"){
+      if(orderTotal>50){
+        return 0;
+      }
+      else{
+        return (weight>5 ? 15 : (weight<=5 && weight>1 ? 10 : (weight<=1 && weight>0 ? 5 : -1)));
+      } 
+    }
+    else{
+      if(orderTotal>100){
+        return 0;
+      }
+      else{
+        return (weight>5 ? 40 : (weight<=5 && weight>1 ? 25 : (weight<=1 && weight>0 ? 15 : -1)));
+      }
+    }
+  }
 }
